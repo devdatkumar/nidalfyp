@@ -1,0 +1,51 @@
+[
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "accountType": "Student",
+    "email": "john.doe@student.com",
+    "password": "password123"
+  },
+  {
+    "firstName": "Alice",
+    "lastName": "Smith",
+    "accountType": "Teacher",
+    "email": "alice.smith@teacher.com",
+    "password": "teacher456"
+  },
+  {
+    "firstName": "Michael",
+    "lastName": "Johnson",
+    "accountType": "Student",
+    "email": "michael.johnson@student.com",
+    "password": "student789"
+  },
+  {
+    "firstName": "Emily",
+    "lastName": "Brown",
+    "accountType": "Teacher",
+    "email": "emily.brown@teacher.com",
+    "password": "brown123"
+  },
+  {
+    "firstName": "David",
+    "lastName": "Martinez",
+    "accountType": "Student",
+    "email": "david.martinez@student.com",
+    "password": "davidm456"
+  },
+  {
+    "firstName": "Sophia",
+    "lastName": "Wilson",
+    "accountType": "Teacher",
+    "email": "sophia.wilson@teacher.com",
+    "password": "wilson789"
+  },
+  {
+    "firstName": "James",
+    "lastName": "Anderson",
+    "accountType": "Student",
+    "email": "james.anderson@student.com",
+    "password": "anderson"
+  }
+]
