@@ -9,14 +9,10 @@
   },
   {
     "sessionEmail": "alice.smith@teacher.com",
-    "className": "456",
+    "className": "ggop",
     "classType": "Tutorial",
-    "datetime": "2024-04-24T01:14",
-    "location": "456",
-    "students": [
-      "emily.brown@teacher.com",
-      "david.martinez@student.com",
-      "sophia.wilson@teacher.com"
-    ]
+    "datetime": "2024-04-18T07:19",
+    "location": "ggop",
+    "students": ["emily.brown@teacher.com", "david.martinez@student.com"]
   }
 ]

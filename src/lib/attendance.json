@@ -1,0 +1,32 @@
+[
+  {
+    "sessionEmail": "alice.smith@teacher.com",
+    "className": "sdaf",
+    "classType": "Tutorial",
+    "datetime": "2024-04-19T06:20",
+    "location": "adsfaf",
+    "students": ["alice.smith@teacher.com", "emily.brown@teacher.com"]
+  },
+  {
+    "sessionEmail": "alice.smith@teacher.com",
+    "className": "sdaf",
+    "classType": "Tutorial",
+    "datetime": "2024-04-19T06:20",
+    "location": "adsfaf",
+    "students": ["alice.smith@teacher.com", "emily.brown@teacher.com"]
+  },
+  {
+    "sessionEmail": "alice.smith@teacher.com",
+    "className": "maths",
+    "classType": "Extra",
+    "datetime": "2024-04-25T08:39",
+    "location": "maths",
+    "students": [
+      "john.doe@student.com",
+      "alice.smith@teacher.com",
+      "david.martinez@student.com",
+      "sophia.wilson@teacher.com",
+      "james.anderson@student.com"
+    ]
+  }
+]

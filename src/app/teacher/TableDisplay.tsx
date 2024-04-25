@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -22,33 +22,10 @@ import {
 import { useToast } from "@/components/ui/use-toast";
 import { ClassForm } from "./classform";
 import courses from "@/lib/courses.json";
-import { removeCourseAction } from "./courseAction";
+import { removeCourseAction, attendanceAction } from "./teacher-action";
 
 export function TableDisplay({ sessionEmail }: any) {
   const { toast } = useToast();
-  async function removeItem(index: Number, className: String) {
-    const res = await removeCourseAction(index);
-
-    toast({
-      title: res?.error,
-    });
-
-    toast({
-      title: "Removed class",
-      description: className,
-    });
-  }
-
-  async function attendance(index: Number, className: String) {
-    // const res = await removeCourseAction(index);
-    // toast({
-    //   title: res?.error,
-    // });
-    // toast({
-    //   title: "Removed class",
-    //   description: className,
-    // });
-  }
 
   return (
     <Table className="shadow-2xl">
@@ -69,7 +46,13 @@ export function TableDisplay({ sessionEmail }: any) {
                 <TableCell>
                   <Button
                     variant="outline"
-                    onClick={() => removeItem(index, course.className)}
+                    onClick={async () => {
+                      await removeCourseAction(index);
+                      toast({
+                        title: "Removed class",
+                        description: course.className,
+                      });
+                    }}
                   >
                     Delete
                   </Button>
@@ -81,7 +64,13 @@ export function TableDisplay({ sessionEmail }: any) {
                 <TableCell>
                   <Button
                     variant="outline"
-                    onClick={() => attendance(index, course.className)}
+                    onClick={async () => {
+                      toast({
+                        title: "Attendance started:" + course.className,
+                        description: "course will be removed in 2 min",
+                      });
+                      await attendanceAction(index);
+                    }}
                   >
                     Attendance {"->"}
                   </Button>

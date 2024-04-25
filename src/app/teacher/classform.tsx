@@ -26,7 +26,7 @@ import {
 import { courseSchema } from "@/lib/schema";
 import { Checkbox } from "@/components/ui/checkbox";
 import Users from "@/lib/users.json";
-import addCourseAction from "./courseAction";
+import { addCourseAction } from "./teacher-action";
 
 export function ClassForm({ sessionEmail }: any) {
   const { toast } = useToast();
@@ -53,7 +53,7 @@ export function ClassForm({ sessionEmail }: any) {
 
     toast({
       title: "Created class",
-      // description: values.className,
+      description: values.className,
     });
   }
 
