@@ -1,4 +1,3 @@
-import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -7,6 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -22,7 +22,9 @@ export default function Home() {
               </CardDescription>
             </CardHeader>
             <CardFooter>
-              <Button>Learn !</Button>
+              <Button asChild>
+                <Link href={"/student"}>Learn !</Link>
+              </Button>
             </CardFooter>
           </Card>
         </div>
@@ -36,7 +38,9 @@ export default function Home() {
               </CardDescription>
             </CardHeader>
             <CardFooter>
-              <Button>Share ...</Button>
+              <Button asChild>
+                <Link href={"/teacher"}>Share ...</Link>
+              </Button>
             </CardFooter>
           </Card>
         </div>

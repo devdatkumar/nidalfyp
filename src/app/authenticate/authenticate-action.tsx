@@ -7,6 +7,34 @@ import path from "path";
 import users from "@/lib/users.json";
 const dataFilePath = path.join(process.cwd(), "/src/lib/users.json");
 
+function getUser(email: string) {
+  return users.find((user) => user.email === email) ?? null;
+}
+
+const signInAction = async (formData: { email: string; password: string }) => {
+  let user = getUser(formData.email);
+  let userType: string = "/" + user?.accountType.toLowerCase()!;
+
+  try {
+    revalidatePath("/");
+    await signIn("credentials", {
+      email: formData.email,
+      password: formData.password,
+      redirectTo: userType,
+    });
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case "CredentialsSignin":
+          return { error: "Invalid Credentials" };
+        default:
+          return { error: "Unknown Error Found" };
+      }
+    }
+    throw error;
+  }
+};
+
 const signUpAction = async (formData: {
   firstName: string;
   lastName: string;
@@ -22,11 +50,13 @@ const signUpAction = async (formData: {
     revalidatePath("/");
     users.push(formData);
     await fsPromises.writeFile(dataFilePath, JSON.stringify(users));
+    let user = getUser(formData.email);
+    let userType: string = "/" + user?.accountType.toLowerCase()!;
 
     await signIn("credentials", {
       email: formData.email,
       password: formData.password,
-      redirectTo: "/",
+      redirectTo: userType,
     });
   } catch (error) {
     if (error instanceof AuthError) {
@@ -41,4 +71,4 @@ const signUpAction = async (formData: {
   }
 };
 
-export default signUpAction;
+export { signInAction, signUpAction };

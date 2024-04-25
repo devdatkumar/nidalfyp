@@ -14,7 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import signInAction from "@/app/authenticate/signin-action";
+import { signInAction } from "./authenticate-action";
 import { signInFormSchema as formSchema } from "@/lib/schema";
 
 export function SignInForm() {

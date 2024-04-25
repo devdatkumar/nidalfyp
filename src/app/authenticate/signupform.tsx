@@ -21,7 +21,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import signUpAction from "./signup-action";
+import { signUpAction } from "./authenticate-action";
 import { signUpFormSchema as formSchema } from "@/lib/schema";
 
 export function SignUpForm() {

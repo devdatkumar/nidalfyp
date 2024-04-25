@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { ModeToggle } from "../ui/mode-toggle";
 import { Button } from "@/components/ui/button";
-import { auth, signOut } from "@/auth";
+import { auth, signOut, signIn } from "@/auth";
+import users from "@/lib/users.json";
 
-function SignOut() {
+function SignOutButton() {
   return (
     <form
       action={async () => {
@@ -14,6 +15,10 @@ function SignOut() {
       <Button type="submit">Sign Out</Button>
     </form>
   );
+}
+
+function getUser(email: string) {
+  return users.find((user) => user.email === email) ?? null;
 }
 
 const Navbar = async () => {
@@ -30,9 +35,17 @@ const Navbar = async () => {
           {session?.user ? (
             <div className="flex justify-between gap-2">
               <Button asChild>
-                <Link href={"/teacher"}>Dashboard</Link>
+                <Link
+                  href={
+                    getUser(session?.user?.email!)!
+                      .accountType.toString()
+                      .toLowerCase()!
+                  }
+                >
+                  Dashboard
+                </Link>
               </Button>
-              <SignOut />
+              <SignOutButton />
             </div>
           ) : (
             <Button asChild>
