@@ -15,6 +15,7 @@ export function HistoryDisplay({ sessionEmail }: any) {
     <Table className="shadow-2xl">
       <TableHeader>
         <TableRow>
+          <TableHead>marked</TableHead>
           <TableHead>Course Name</TableHead>
           <TableHead>Course Type</TableHead>
           <TableHead>Date & Time</TableHead>
@@ -27,6 +28,7 @@ export function HistoryDisplay({ sessionEmail }: any) {
           (item, index) =>
             item.sessionEmail == sessionEmail && (
               <TableRow key={index}>
+                <TableCell>{item.marked.toString()}</TableCell>
                 <TableCell>{item.className}</TableCell>
                 <TableCell>{item.classType}</TableCell>
                 <TableCell>{item.datetime}</TableCell>

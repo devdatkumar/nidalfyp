@@ -42,8 +42,23 @@ const removeCourseAction = async (index: Number) => {
 const addAttendanceAction = async (index: number) => {
   try {
     revalidatePath("/");
-    let courseData = courses.at(index);
+    let courseData = courses.at(index)!;
+    courseData.marked = false;
+    courseData.markedAttendance = [];
     attendance.push(courseData!);
+    await fsPromises.writeFile(
+      dataFilePath + "/src/lib/attendance.json",
+      JSON.stringify(attendance)
+    );
+  } catch (error) {
+    return { error: "Unknown Error found" };
+  }
+};
+
+const endAttendance = async (index: number) => {
+  try {
+    revalidatePath("/");
+    attendance[index].marked = true;
     await fsPromises.writeFile(
       dataFilePath + "/src/lib/attendance.json",
       JSON.stringify(attendance)
@@ -57,6 +72,7 @@ const attendanceAction = async (index: number) => {
   addAttendanceAction(index);
   const res = await setTimeout(60000, "1 min");
   res && removeCourseAction(index);
+  endAttendance(index);
 };
 
 export { addCourseAction, removeCourseAction, attendanceAction };

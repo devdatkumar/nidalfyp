@@ -1,32 +1,22 @@
 [
   {
     "sessionEmail": "alice.smith@teacher.com",
-    "className": "sdaf",
-    "classType": "Tutorial",
-    "datetime": "2024-04-19T06:20",
-    "location": "adsfaf",
-    "students": ["alice.smith@teacher.com", "emily.brown@teacher.com"]
-  },
-  {
-    "sessionEmail": "alice.smith@teacher.com",
-    "className": "sdaf",
-    "classType": "Tutorial",
-    "datetime": "2024-04-19T06:20",
-    "location": "adsfaf",
-    "students": ["alice.smith@teacher.com", "emily.brown@teacher.com"]
-  },
-  {
-    "sessionEmail": "alice.smith@teacher.com",
-    "className": "maths",
+    "className": "alphacourse",
     "classType": "Extra",
-    "datetime": "2024-04-25T08:39",
-    "location": "maths",
-    "students": [
-      "john.doe@student.com",
-      "alice.smith@teacher.com",
-      "david.martinez@student.com",
-      "sophia.wilson@teacher.com",
-      "james.anderson@student.com"
-    ]
+    "datetime": "2024-04-25T23:31",
+    "location": "remote alpha",
+    "students": ["john.doe@student.com", "alice.smith@teacher.com"],
+    "marked": false,
+    "markedAttendance": ["john.doe@student.com"]
+  },
+  {
+    "sessionEmail": "alice.smith@teacher.com",
+    "className": "beta",
+    "classType": "Lecture",
+    "datetime": "2024-04-25T23:38",
+    "location": "beta remote",
+    "students": ["john.doe@student.com", "michael.johnson@student.com"],
+    "marked": true,
+    "markedAttendance": []
   }
 ]
