@@ -39,7 +39,7 @@ const removeCourseAction = async (index: Number) => {
   }
 };
 
-const addattendanceAction = async (index: number) => {
+const addAttendanceAction = async (index: number) => {
   try {
     revalidatePath("/");
     let courseData = courses.at(index);
@@ -54,7 +54,7 @@ const addattendanceAction = async (index: number) => {
 };
 
 const attendanceAction = async (index: number) => {
-  addattendanceAction(index);
+  addAttendanceAction(index);
   const res = await setTimeout(60000, "1 min");
   res && removeCourseAction(index);
 };
