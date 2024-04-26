@@ -7,7 +7,6 @@ const dataFilePath = path.join(process.cwd());
 import { courseSchema } from "@/lib/schema";
 import courses from "@/lib/courses.json";
 import attendance from "@/lib/attendance.json";
-import { setTimeout } from "timers/promises";
 
 const addCourseAction = async (courseData: z.infer<typeof courseSchema>) => {
   if (!courseData) {
@@ -55,10 +54,10 @@ const addAttendanceAction = async (index: number) => {
   }
 };
 
-const endAttendance = async (index: number) => {
+const endAttendanceAction = async (index: number, markedValue: boolean) => {
   try {
     revalidatePath("/");
-    attendance[index].marked = true;
+    attendance[index].marked = markedValue;
     await fsPromises.writeFile(
       dataFilePath + "/src/lib/attendance.json",
       JSON.stringify(attendance)
@@ -68,11 +67,9 @@ const endAttendance = async (index: number) => {
   }
 };
 
-const attendanceAction = async (index: number) => {
-  addAttendanceAction(index);
-  const res = await setTimeout(60000, "1 min");
-  res && removeCourseAction(index);
-  endAttendance(index);
+export {
+  addCourseAction,
+  removeCourseAction,
+  addAttendanceAction,
+  endAttendanceAction,
 };
-
-export { addCourseAction, removeCourseAction, attendanceAction };

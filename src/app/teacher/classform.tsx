@@ -146,39 +146,45 @@ export function ClassForm({ sessionEmail }: any) {
                 </FormDescription>
               </div>
               <div className="overflow-y-auto max-h-40 space-y-2">
-                {Users.map((user) => (
-                  <FormField
-                    key={user.email}
-                    control={form.control}
-                    name="students"
-                    render={({ field }) => {
-                      return (
-                        <FormItem
-                          key={user.email}
-                          className="flex flex-row items-start space-x-3 space-y-0"
-                        >
-                          <FormControl>
-                            <Checkbox
-                              checked={field.value?.includes(user.email)}
-                              onCheckedChange={(checked) => {
-                                return checked
-                                  ? field.onChange([...field.value, user.email])
-                                  : field.onChange(
-                                      field.value?.filter(
-                                        (value) => value !== user.email
-                                      )
-                                    );
-                              }}
-                            />
-                          </FormControl>
-                          <FormLabel className="font-normal">
-                            {user.firstName} {user.lastName}
-                          </FormLabel>
-                        </FormItem>
-                      );
-                    }}
-                  />
-                ))}
+                {Users.map(
+                  (user) =>
+                    user.accountType == "Student" && (
+                      <FormField
+                        key={user.email}
+                        control={form.control}
+                        name="students"
+                        render={({ field }) => {
+                          return (
+                            <FormItem
+                              key={user.email}
+                              className="flex flex-row items-start space-x-3 space-y-0"
+                            >
+                              <FormControl>
+                                <Checkbox
+                                  checked={field.value?.includes(user.email)}
+                                  onCheckedChange={(checked) => {
+                                    return checked
+                                      ? field.onChange([
+                                          ...field.value,
+                                          user.email,
+                                        ])
+                                      : field.onChange(
+                                          field.value?.filter(
+                                            (value) => value !== user.email
+                                          )
+                                        );
+                                  }}
+                                />
+                              </FormControl>
+                              <FormLabel className="font-normal">
+                                {user.firstName} {user.lastName}
+                              </FormLabel>
+                            </FormItem>
+                          );
+                        }}
+                      />
+                    )
+                )}
               </div>
               <FormMessage />
             </FormItem>

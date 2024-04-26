@@ -22,7 +22,7 @@ import {
 import { useToast } from "@/components/ui/use-toast";
 import { ClassForm } from "./classform";
 import courses from "@/lib/courses.json";
-import { removeCourseAction, attendanceAction } from "./teacher-action";
+import { removeCourseAction, addAttendanceAction } from "./teacher-action";
 
 export function TableDisplay({ sessionEmail }: any) {
   const { toast } = useToast();
@@ -36,6 +36,7 @@ export function TableDisplay({ sessionEmail }: any) {
           <TableHead>Course Type</TableHead>
           <TableHead>Date & Time</TableHead>
           <TableHead>Location</TableHead>
+          <TableHead></TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -66,10 +67,10 @@ export function TableDisplay({ sessionEmail }: any) {
                     variant="outline"
                     onClick={async () => {
                       toast({
-                        title: "Attendance started:" + course.className,
-                        description: "course will be removed in 2 min",
+                        title: "Attendance started: " + course.className,
                       });
-                      await attendanceAction(index);
+                      await addAttendanceAction(index);
+                      await removeCourseAction(index);
                     }}
                   >
                     Attendance {"->"}

@@ -1,1 +1,23 @@
-[{"sessionEmail":"emily.brown@teacher.com","className":"first class","classType":"Tutorial","datetime":"2024-04-13T05:04","location":"remote","students":["emily.brown@teacher.com","michael.johnson@student.com"]}]
+[
+  {
+    "sessionEmail": "emily.brown@teacher.com",
+    "className": "first class",
+    "classType": "Tutorial",
+    "datetime": "2024-04-13T05:04",
+    "location": "remote",
+    "students": ["emily.brown@teacher.com", "michael.johnson@student.com"]
+  },
+  {
+    "sessionEmail": "alice.smith@teacher.com",
+    "className": "testing ",
+    "classType": "Tutorial",
+    "datetime": "2024-04-25T02:41",
+    "location": "testing",
+    "students": [
+      "james.anderson@student.com",
+      "david.martinez@student.com",
+      "michael.johnson@student.com",
+      "john.doe@student.com"
+    ]
+  }
+]
