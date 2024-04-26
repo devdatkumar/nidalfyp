@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import type { NextAuthConfig } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import GitHub from "next-auth/providers/github";
+// import GitHub from "next-auth/providers/github";
 import { z } from "zod";
 import users from "@/lib/users.json";
 
@@ -20,10 +20,10 @@ export const config = {
   },
   providers: [
     // Passkey,
-    GitHub({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    }),
+    // GitHub({
+    //   clientId: process.env.GITHUB_ID,
+    //   clientSecret: process.env.GITHUB_SECRET,
+    // }),
     Credentials({
       async authorize(credentials) {
         const parsedCredentials = z
