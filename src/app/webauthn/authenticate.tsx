@@ -20,7 +20,7 @@ export default async function authenticate() {
 
   const expected = {
     challenge: "randomly-generated-challenge-to-avoid-replay-attacks",
-    origin: "http://localhost:3000",
+    origin: "https://nidalfyp.vercel.app/",
     userVerified: true,
     counter: 0,
   };
