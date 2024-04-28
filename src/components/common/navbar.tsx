@@ -23,6 +23,9 @@ function getUser(email: string) {
 
 const Navbar = async () => {
   const session = await auth();
+  let userType = getUser(session?.user?.email!)
+    ? getUser(session?.user?.email!)!.accountType!.toString().toLowerCase()!
+    : "userTypeNotFound";
   return (
     <div className="grid grid-cols-2 border-b-2 border-black dark:border-white">
       <div className="flex pl-2 items-center underline">
@@ -35,15 +38,7 @@ const Navbar = async () => {
           {session?.user ? (
             <div className="flex justify-between gap-2">
               <Button asChild>
-                <Link
-                  href={
-                    getUser(session?.user?.email!)
-                      ?.accountType?.toString()
-                      .toLowerCase()!
-                  }
-                >
-                  Dashboard
-                </Link>
+                <Link href={userType}>Dashboard</Link>
               </Button>
               <SignOutButton />
             </div>
