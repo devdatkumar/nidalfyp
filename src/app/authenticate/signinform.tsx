@@ -34,11 +34,11 @@ export function SignInForm() {
     const response = await signInAction(values);
 
     toast({
-      title: "Login attempted: " + values.email,
+      title: response?.error,
     });
 
     toast({
-      title: response?.error,
+      title: "Login attempted: " + values.email,
     });
   }
 
