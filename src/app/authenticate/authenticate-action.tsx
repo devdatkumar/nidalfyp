@@ -13,7 +13,7 @@ function getUser(email: string) {
 
 const signInAction = async (formData: { email: string; password: string }) => {
   let user = getUser(formData.email);
-  let userType: string = "/" + user?.accountType.toLowerCase()!;
+  let userType: string = "/" + user?.accountType?.toLowerCase()! || "/";
 
   try {
     revalidatePath("/");
@@ -51,7 +51,7 @@ const signUpAction = async (formData: {
     users.push(formData);
     await fsPromises.writeFile(dataFilePath, JSON.stringify(users));
     let user = getUser(formData.email);
-    let userType: string = "/" + user?.accountType.toLowerCase()!;
+    let userType: string = "/" + user?.accountType!.toLowerCase()!;
 
     await signIn("credentials", {
       email: formData.email,

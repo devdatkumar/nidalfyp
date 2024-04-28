@@ -37,9 +37,9 @@ const Navbar = async () => {
               <Button asChild>
                 <Link
                   href={
-                    getUser(session?.user?.email!)!
-                      .accountType.toString()
-                      .toLowerCase()!
+                    getUser(session?.user?.email!)
+                      ?.accountType?.toString()
+                      .toLowerCase() || "/"
                   }
                 >
                   Dashboard
