@@ -57,8 +57,7 @@ export function TableDisplay({ sessionEmail }: any) {
                 variant="outline"
                 onClick={async () => {
                   toast({
-                    title: "Attendance started:" + course.className,
-                    description: "course will be removed in 2 min",
+                    title: "Attendance Marked:" + course.className,
                   });
                   await markAttendance(indexesToUpdate[index], sessionEmail)!;
                 }}

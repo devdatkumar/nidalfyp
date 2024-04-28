@@ -39,7 +39,7 @@ const Navbar = async () => {
                   href={
                     getUser(session?.user?.email!)
                       ?.accountType?.toString()
-                      .toLowerCase() || "/"
+                      .toLowerCase()!
                   }
                 >
                   Dashboard
