@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/select";
 import { signUpAction } from "./authenticate-action";
 import { signUpFormSchema as formSchema } from "@/lib/schema";
+import registration from "@/app/webauthn/registration";
 
 export function SignUpForm() {
   const { toast } = useToast();
@@ -41,8 +42,13 @@ export function SignUpForm() {
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const response = await signUpAction(values);
+    const registerPassKey = await registration(values.email);
     toast({
       title: response?.error,
+    });
+
+    toast({
+      title: registerPassKey.username,
     });
   }
 

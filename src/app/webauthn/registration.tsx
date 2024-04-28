@@ -1,8 +1,8 @@
 import { client, server } from "@passwordless-id/webauthn";
 import { registerAction } from "./webauthn-action";
 
-export default async function registration() {
-  const username = "testname";
+export default async function registration(userEmail: string) {
+  const username = userEmail;
 
   const registration = await client.register(
     username,
@@ -19,4 +19,5 @@ export default async function registration() {
   );
 
   registerAction(registrationParsed.credential);
+  return registrationParsed;
 }

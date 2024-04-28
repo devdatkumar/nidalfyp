@@ -42,9 +42,12 @@ const addAttendanceAction = async (index: number) => {
   try {
     revalidatePath("/");
     let courseData = courses.at(index)!;
-    courseData.marked = false;
-    courseData.markedAttendance = [];
-    attendance.push(courseData!);
+    let courseStatus = {
+      ...courseData,
+      marked: false,
+      markedAttendance: [],
+    };
+    attendance.push(courseStatus!);
     await fsPromises.writeFile(
       dataFilePath + "/src/lib/attendance.json",
       JSON.stringify(attendance)
